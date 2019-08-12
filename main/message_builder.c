@@ -71,7 +71,7 @@ static void client_send_message(char const *message) {
   }
 
   // tag
-  if (flex_trits_from_trytes(tf.tag, NUM_TRITS_TAG, (tryte_t const *)"CCLIENT99999999999999999999", NUM_TRYTES_TAG,
+  if (flex_trits_from_trytes(tf.tag, NUM_TRITS_TAG, (tryte_t const *)"TANGLEPIGEON999999999999999", NUM_TRYTES_TAG,
                              NUM_TRYTES_TAG) == 0) {
     ESP_LOGE(TAG, "tag flex_trits convertion failed");
     goto done;
