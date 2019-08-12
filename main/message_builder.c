@@ -102,7 +102,7 @@ int send_message(esp_sleep_source_t trigger) {
   }
 
   // version element
-  cJSON_AddItemToObject(json_root, "TangleBroker", cJSON_CreateString("v0.0.1"));
+  cJSON_AddItemToObject(json_root, "TanglePigeon", cJSON_CreateString("v0.0.1"));
 
   // Trigger element
   switch (trigger) {

@@ -27,7 +27,7 @@
 // ESP32-DevKitC V4 onboard LED
 #define BLINK_GPIO GPIO_NUM_2
 
-static const char *TAG = "TangleBroker";
+static const char *TAG = "TanglePigeon";
 
 static EventGroupHandle_t wifi_event_group;
 
