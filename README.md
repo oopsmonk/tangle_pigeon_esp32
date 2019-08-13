@@ -1,6 +1,7 @@
 # TanglePigeon 
 
 The TanglePigeon carries a message to the Tangle.   
+Sending a message can be triggered via GPIO (BOOT button), Timer.  
 
 ![](https://raw.githubusercontent.com/oopsmonk/tangle_pigeon_esp32/master/images/tangle_pigeon.png)
 
