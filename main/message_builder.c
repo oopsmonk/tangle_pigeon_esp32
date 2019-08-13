@@ -85,7 +85,7 @@ static void client_send_message(char const *message) {
   ret_code = iota_client_send_transfer(&g_cclient, NULL, dummy_security, CONFIG_IOTA_DEPTH, CONFIG_IOTA_MWM, false,
                                        transfers, NULL, NULL, NULL, bundle);
 
-  printf("send transaction: %s\n", error_2_string(ret_code));
+  ESP_LOGI(TAG, "transaction sent: %s", error_2_string(ret_code));
 
 done:
   bundle_transactions_free(&bundle);

@@ -80,7 +80,7 @@ static void wifi_conn_init(void) {
 
 static void check_receiver_address() {
   if (strlen(CONFIG_MSG_RECEIVER) != HASH_LENGTH_TRYTE) {
-    ESP_LOGE(TAG, "please set a valid seed in sdkconfig!");
+    ESP_LOGE(TAG, "please set a valid address hash(CONFIG_MSG_RECEIVER) in sdkconfig!");
     for (int i = 30; i >= 0; i--) {
       ESP_LOGI(TAG, "Restarting in %d seconds...", i);
       vTaskDelay(1000 / portTICK_PERIOD_MS);
@@ -105,7 +105,6 @@ static void update_time() {
   ESP_LOGI(TAG, "Initializing SNTP: %s, Timezone: %s", CONFIG_SNTP_SERVER, CONFIG_SNTP_TZ);
   sntp_setoperatingmode(SNTP_OPMODE_POLL);
   sntp_setservername(0, CONFIG_SNTP_SERVER);
-  // sntp_setservername(0, "pool.ntp.org");
   sntp_init();
 
   // wait for time to be set
@@ -121,7 +120,7 @@ static void update_time() {
   }
 
   // set timezone
-  char strftime_buf[64];
+  char strftime_buf[32];
   setenv("TZ", CONFIG_SNTP_TZ, 1);
   tzset();
   localtime_r(&now, &timeinfo);
@@ -175,7 +174,7 @@ void app_main() {
 
   vTaskDelay(1000 / portTICK_PERIOD_MS);
 
-  printf("Enabling timer wakeup, %d minutes\n", CONFIG_WAKE_UP_TIME);
+  ESP_LOGI(TAG, "Enabling timer wakeup, %d minutes", CONFIG_WAKE_UP_TIME);
   esp_sleep_enable_timer_wakeup(CONFIG_WAKE_UP_TIME * 60000000);  // minutes
 
   rtc_gpio_init(WAKE_UP_GPIO);
@@ -188,7 +187,7 @@ void app_main() {
   // to minimize current consumption.
   rtc_gpio_isolate(GPIO_NUM_12);
 
-  printf("Entering deep sleep\n");
+  ESP_LOGI(TAG, "Entering deep sleep");
   gettimeofday(&sleep_enter_time, NULL);
 
   // wifi done
