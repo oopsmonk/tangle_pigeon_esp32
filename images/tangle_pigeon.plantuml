@@ -1,0 +1,19 @@
+' TanglePigeon
+
+@startuml
+start
+repeat :LED On;
+-Wait for WiFi Connection
+-Update Time
+if (Wake Up via GPIO) then ( )
+:Send Message (triggered by GPIO);
+elseif (Wake Up via Timer) then ( )
+:Send Message (triggered by Timer);
+elseif (Power On) then ( )
+:Send Message (triggered by Power);
+elseif (Unknown) then ( )
+endif
+-LED OFF
+-Enter Deep Sleep
+backward:Interrupts; 
+@enduml
