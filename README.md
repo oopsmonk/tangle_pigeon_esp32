@@ -1,7 +1,23 @@
 # TanglePigeon 
 
 The TanglePigeon carries a message to the Tangle.   
-Sending a message can be triggered via GPIO (BOOT button), Timer.  
+This is an example project shows how to send messages to the Tangle with [CClient library](https://github.com/iotaledger/entangled/tree/develop/cclient) and [ESP32](https://en.wikipedia.org/wiki/ESP32), the message can be triggered via GPIO (BOOT button) or Timer.  
+The message is in JSON format shown below:  
+
+```
+{
+    "TanglePigeon":"v0.0.1",
+    "Trigger":"TIMER",
+    "LocalTime":"2019-08-12 13:23:47",
+    "TimeZone":"CST-8",
+    "Data":"Hello IOTA"
+}
+```
+
+You can change or add some sensor data to the message as you need, like temperature, humidity, location...  
+**Notice:** Messages will be removed after the IRI snapshot because they are zero-value transactions.  
+
+## The Flowchart  
 
 ![](https://raw.githubusercontent.com/oopsmonk/tangle_pigeon_esp32/master/images/tangle_pigeon.png)
 
