@@ -45,12 +45,6 @@ menu "Tangle Pigeon"
             bool "Use HTTPS"
             default y
 
-        config MSG_RECEIVER
-            string "The receiver address"
-            default ""
-            help
-                The message will send to this address.
-
         config IOTA_DEPTH
             int "Depth for tips selection"
             default 3
@@ -64,6 +58,12 @@ menu "Tangle Pigeon"
             help
                 14 for mannet, 6 for devnet or testnet.
     endmenu
+
+    config MSG_RECEIVER
+        string "Receiver address"
+        default ""
+        help
+            The message will send to this address.
 
     config WAKE_UP_TIME
         int "Wake up time (minutes)"

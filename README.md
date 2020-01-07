@@ -23,26 +23,24 @@ You can change or add some sensor data to the message as you need, like temperat
 
 ## Requirements  
 
-* [ESP32-DevKitC V4](https://docs.espressif.com/projects/esp-idf/en/v3.2.2/get-started/get-started-devkitc.html#esp32-devkitc-v4-getting-started-guide)
-* xtensa-esp32 toolchain
-* ESP-IDF v3.2.2
+* [ESP32-DevKitC V4](https://docs.espressif.com/projects/esp-idf/en/latest/hw-reference/get-started-devkitc.html#functional-description)
 
 ## ESP32 build system setup  
 
 Please follow documentations to setup your toolchain and development framework.
 
 Linux:  
-* [xtensa-esp32 toolchain](https://docs.espressif.com/projects/esp-idf/en/v3.2.2/get-started-cmake/linux-setup.html) 
-* [ESP-IDF](https://docs.espressif.com/projects/esp-idf/en/v3.2.2/get-started-cmake/index.html#get-esp-idf) 
+* [xtensa-esp32 toolchain](https://docs.espressif.com/projects/esp-idf/en/v3.3.1/get-started-cmake/linux-setup.html) 
+* [ESP-IDF](https://docs.espressif.com/projects/esp-idf/en/v3.3.1/get-started-cmake/index.html#linux-and-macos) 
 
 Windows:
-* [xtensa-esp32 toolchain](https://docs.espressif.com/projects/esp-idf/en/v3.2.2/get-started-cmake/windows-setup.html#standard-setup-of-toolchain-for-windows-cmake) 
-* [ESP-IDF](https://docs.espressif.com/projects/esp-idf/en/v3.2.2/get-started-cmake/index.html#windows-command-prompt) 
+* [xtensa-esp32 toolchain](https://docs.espressif.com/projects/esp-idf/en/v3.3.1/get-started-cmake/windows-setup.html#standard-setup-of-toolchain-for-windows-cmake) 
+* [ESP-IDF](https://docs.espressif.com/projects/esp-idf/en/v3.3.1/get-started-cmake/index.html#windows-command-prompt) 
 
-**Notice: We use the ESP-IDF v3.2.2, make sure you clone the right branch of ESP-IDF**
+**Notice: We use the ESP-IDF v3.3.1, make sure you clone the right branch of ESP-IDF**
 
 ```
-git clone -b v3.2.2 --recursive https://github.com/espressif/esp-idf.git
+git clone -b v3.3.1 --recursive https://github.com/espressif/esp-idf.git
 ```
 
 
@@ -105,11 +103,11 @@ cd tangle_pigeon_esp32
 bash ./init.sh
 ```
 
-Windows: **TODO**  
+Windows: run the command under Git Bash. 
 
 ### Step 3: Configuration  
 
-In this step, you need to set up the WiFi, SNTP, IRI node, and a recursive.  
+In this step, you need to set up the WiFi, SNTP, IRI node, and the receiver.  
 
 ```
 idf.py menuconfig
@@ -121,6 +119,9 @@ idf.py menuconfig
 
 # Default IRI node
 [Tangle Pigeon] -> [IRI Node]
+
+# Receiver address 
+[Tangle Pigeon] -> () Receiver address
 
 # Wake up timer
 [Tangle Pigeon] -> (5) Wake up time (minutes)
